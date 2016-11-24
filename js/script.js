@@ -19,22 +19,15 @@ function Timer(time, container) {
         seconds = Math.floor((this.timePassed / 1000) % 60);
         miliseconds = this.timePassed % 1000;
 
-        return leadingZero(hours, 2) +
-         ":" + leadingZero(minutes, 2) +
-         ":" + leadingZero(seconds, 2) +
-         "." + leadingZero(miliseconds, 3);
+        return ("0" + hours).slice(-2) +
+         ":" + ("0" + minutes).slice(-2) +
+         ":" + ("0" + seconds).slice(-2) +
+         "." + ("00" + miliseconds).slice(-3);
     }
 
     this.draw = function() {
         this.container.innerHTML = this.toString();
     }
-}
-
-// Helper for toString() method; add leading 0
-// @param num, base number > 0
-// @return string
-function leadingZero(num, base) {
-    return ("00" + num).slice(-base);
 }
 
 // Event listener for start/pause/continue button
