@@ -1,5 +1,6 @@
 var timerOn; // id for setInterval
 var inProgress = false;
+var count = 1;
 
 var timerContainer = myTimer;
 var startButton = document.getElementById("start");
@@ -74,12 +75,13 @@ function resetTimer() {
 }
 
 // helper for event listeners
-// creates and appends <p> with time stop
+// creates and appends paragraph with time stop
 function printTime(msg) {
     var timestop = document.createElement("p");
-    timestop.innerText = msg + ": " + timer.toString();
+    timestop.innerText = count + " " + msg + ": " + timer.toString();
     timestop.className = "timestop";
     container.appendChild(timestop);
+    count++;
 }
 
 startButton.addEventListener("click", startTimer, false);
