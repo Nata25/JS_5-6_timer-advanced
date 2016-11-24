@@ -1,5 +1,4 @@
-var timerOn;
-var current = 0;
+var timerOn; // id for setInterval
 var inProgress = false;
 
 var timerContainer = myTimer;
@@ -41,15 +40,15 @@ function startTimer() {
         printTime("Stop");
     }
     else {
-        startButton.className = "button btn btn-primary btn-lg";
+        var current = timer.timePassed;
         startButton.innerText = "pause";
+        startButton.className = "button btn btn-primary btn-lg";
         var start = Date.now();
         timerOn = setInterval(function() {
             timer.timePassed = Date.now() + current - start;
             timer.draw();
         }, 1);
         inProgress = true;
-        current = timer.timePassed;
     }
 }
 
