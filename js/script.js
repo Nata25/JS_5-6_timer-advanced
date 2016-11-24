@@ -1,12 +1,12 @@
-var timerOn; // id for setInterval
-var inProgress = false;
-var count = 1;
-
 var timerContainer = myTimer;
 var startButton = document.getElementById("start");
 var splitButton = document.getElementById("split");
 var resetButton = document.getElementById("reset");
 var container = document.getElementsByClassName("jumbotron")[0];
+
+var timerOn; // id for setInterval
+var inProgress = false;
+var count = 1;
 
 function Timer(time, container) {
     this.timePassed = time;
@@ -30,10 +30,10 @@ function Timer(time, container) {
     }
 }
 
-// Event listener for start/pause/continue button
-function startTimer() {
+// Event listener for start/stop button
+function start() {
     if (inProgress) {
-        startButton.innerText = "continue";
+        startButton.innerText = "start";
         startButton.className = "button btn btn-success btn-lg";
         clearInterval(timerOn);
         timer.draw();
@@ -54,14 +54,14 @@ function startTimer() {
 }
 
 // Event listener for split button
-function splitTime() {
+function split() {
     if (inProgress) {
         printTime("Split");
     }
 }
 
 // Event listener for reset button
-function resetTimer() {
+function reset() {
     clearInterval(timerOn);
     timer.timePassed = 0;
     timer.draw();
@@ -72,6 +72,7 @@ function resetTimer() {
     while (timestops[0]) {
         container.removeChild(timestops[0]);
     }
+    count = 1;
 }
 
 // helper for event listeners
@@ -84,9 +85,9 @@ function printTime(msg) {
     count++;
 }
 
-startButton.addEventListener("click", startTimer, false);
-splitButton.addEventListener("click", splitTime, false);
-resetButton.addEventListener("click", resetTimer, false);
+startButton.addEventListener("click", start);
+splitButton.addEventListener("click", split);
+resetButton.addEventListener("click", reset);
 
 timer = new Timer(0, timerContainer);
 timer.draw();
