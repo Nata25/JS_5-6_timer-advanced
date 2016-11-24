@@ -45,6 +45,7 @@ function startTimer() {
         clearInterval(timerOn);
         timer.draw();
         inProgress = false;
+        printTime("Stop");
     }
     else {
         startButton.className = "button btn btn-primary btn-lg";
@@ -59,15 +60,11 @@ function startTimer() {
     }
 }
 
+// Event listener for split button
 function splitTime() {
     if (inProgress) {
-        var timestop = document.createElement("p");
-        timestop.innerText = "Split: " + timer.toString();
-        timestop.className = "timestop";
-        container.appendChild(timestop);
+        printTime("Split");
     }
-
-    // console.log(timer.toString());
 }
 
 // Event listener for reset button
@@ -82,6 +79,15 @@ function resetTimer() {
     while (timestops[0]) {
         container.removeChild(timestops[0]);
     }
+}
+
+// helper for event listeners
+// creates and appends <p> with time stop
+function printTime(msg) {
+    var timestop = document.createElement("p");
+    timestop.innerText = msg + ": " + timer.toString();
+    timestop.className = "timestop";
+    container.appendChild(timestop);
 }
 
 startButton.addEventListener("click", startTimer, false);
