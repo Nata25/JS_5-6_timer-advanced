@@ -61,16 +61,16 @@ function startTimer() {
 
 function splitTime() {
     if (inProgress) {
-        var timespot = document.createElement("p");
-        timespot.innerText = "Split: " + timer.toString();
-        timespot.className = "timespot";
-        container.appendChild(timespot);
+        var timestop = document.createElement("p");
+        timestop.innerText = "Split: " + timer.toString();
+        timestop.className = "timestop";
+        container.appendChild(timestop);
     }
 
     // console.log(timer.toString());
 }
 
-// Event listener for clear button
+// Event listener for reset button
 function resetTimer() {
     clearInterval(timerOn);
     timer.timePassed = 0;
@@ -78,6 +78,10 @@ function resetTimer() {
     startButton.innerText = "start";
     startButton.className = "button btn btn-success btn-lg";
     inProgress = false;
+    var timestops = document.getElementsByClassName("timestop");
+    while (timestops[0]) {
+        container.removeChild(timestops[0]);
+    }
 }
 
 startButton.addEventListener("click", startTimer, false);
