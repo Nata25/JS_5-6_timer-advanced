@@ -1,0 +1,21 @@
+.jumbotron {
+    margin: 50px auto;
+    width: 50%;
+}
+
+#myTimer {
+    padding: 20px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#miliseconds {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.button {
+    width: 122px;
+    margin-top: 20px;
+}
