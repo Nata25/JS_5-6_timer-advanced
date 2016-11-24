@@ -1,11 +1,12 @@
 var timerOn;
-var start = current = 0;
+var current = 0;
 var inProgress = false;
 
 var timerContainer = myTimer;
 var startButton = document.getElementById("start");
 var splitButton = document.getElementById("split");
 var resetButton = document.getElementById("reset");
+var container = document.getElementsByClassName("jumbotron")[0];
 
 function Timer(time, container) {
     this.timePassed = time;
@@ -59,7 +60,14 @@ function startTimer() {
 }
 
 function splitTime() {
+    if (inProgress) {
+        var timespot = document.createElement("p");
+        timespot.innerText = "Split: " + timer.toString();
+        timespot.className = "timespot";
+        container.appendChild(timespot);
+    }
 
+    // console.log(timer.toString());
 }
 
 // Event listener for clear button
