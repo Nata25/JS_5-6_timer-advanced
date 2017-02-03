@@ -6,4 +6,4 @@ You can pause, continue or stop (clear) timer.
 
 Split time period and get the time spot printed without stopping the timer.
 
-[Open on .github.io](https://nata25.github.io/JS_5-6_timer-advanced/).
+[Open on .github.io](https://nata25.github.io/JS_6_timer-advanced/).
