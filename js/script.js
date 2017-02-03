@@ -14,7 +14,7 @@ function Timer(time, container) {
 
     this.toString = function() {
         var seconds, minutes, hours;
-        hours = Math.floor(this.timePassed / 3600000);
+        hours = Math.floor(this.timePassed / 3600000) % 24;
         minutes = Math.floor((this.timePassed / 60000) % 60);
         seconds = Math.floor((this.timePassed / 1000) % 60);
         miliseconds = this.timePassed % 1000;
